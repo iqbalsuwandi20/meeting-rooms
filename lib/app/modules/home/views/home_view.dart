@@ -35,6 +35,9 @@ class HomeView extends GetView<HomeController> {
 
           var meetingSchedules = snapshot.data!;
 
+          String fullName = "Yosi";
+          String firstNameInitial = fullName.split(" ")[0][0];
+
           return ListView(
             padding: EdgeInsets.all(40),
             children: [
@@ -47,9 +50,15 @@ class HomeView extends GetView<HomeController> {
                         width: 75,
                         height: 75,
                         color: Colors.grey[400],
-                        child: Image.network(
-                          "https://ui-avatars.com/api/?name=Yosi",
-                          fit: BoxFit.cover,
+                        child: Center(
+                          child: Text(
+                            firstNameInitial,
+                            style: TextStyle(
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -61,7 +70,7 @@ class HomeView extends GetView<HomeController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Yosi",
+                          fullName,
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 20,
