@@ -19,43 +19,34 @@ class LoginScreenController extends GetxController {
   Future<void> login() async {
     isLoading.value = true;
 
-    // URL API
     final url = Uri.parse('https://uat-api.ftlgym.com/api/v1/test/login');
 
-    // Data yang akan dikirim ke API
     final body = {
       'email': emailC.text,
       'password': passC.text,
     };
 
     try {
-      // Melakukan POST request ke API
       final response = await http.post(
         url,
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(body),
       );
 
-      // Cek status response dari server
       if (response.statusCode == 200) {
-        // Jika sukses, proses responsenya
         final data = jsonDecode(response.body);
         print('Login Berhasil: ${data['message']}');
-        // Lanjutkan ke halaman berikutnya atau tampilkan pesan sukses
 
-        Get.toNamed(Routes.HOME);
+        Get.offAllNamed(Routes.HOME);
         Get.snackbar('Login Berhasil', 'Selamat datang di Ruangan Meeting');
       } else {
-        // Jika gagal, tampilkan pesan error
         print('Login Gagal: ${response.body}');
         Get.snackbar('Login Gagal', 'Cek kembali email dan password Anda.');
       }
     } catch (e) {
-      // Menangani jika ada error saat melakukan request
       print('Error: $e');
       Get.snackbar('Error', 'Tidak dapat terhubung ke server.');
     } finally {
-      // Selesai loading
       isLoading.value = false;
     }
   }

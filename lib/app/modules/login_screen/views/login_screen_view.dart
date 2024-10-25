@@ -28,7 +28,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
           Container(
             padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
-              color: Colors.grey[300],
+              color: Colors.grey[400],
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
@@ -48,7 +48,7 @@ class LoginScreenView extends GetView<LoginScreenController> {
                   autocorrect: false,
                   textInputAction: TextInputAction.next,
                   decoration: InputDecoration(
-                    labelText: "Email..",
+                    labelText: "Email",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),
@@ -59,24 +59,21 @@ class LoginScreenView extends GetView<LoginScreenController> {
                   return TextField(
                     controller: controller.passC,
                     autocorrect: false,
-                    obscureText:
-                        controller.isPasswordHidden.value, // Visibility control
+                    obscureText: controller.isPasswordHidden.value,
                     textInputAction: TextInputAction.done,
                     decoration: InputDecoration(
-                      labelText: "Password..",
+                      labelText: "Password",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
                       suffixIcon: IconButton(
                         icon: Icon(
-                          // Menampilkan ikon yang sesuai
                           controller.isPasswordHidden.value
                               ? Icons.visibility_off
                               : Icons.visibility,
                         ),
                         onPressed: () {
-                          controller
-                              .togglePasswordVisibility(); // Toggle visibility
+                          controller.togglePasswordVisibility();
                         },
                       ),
                     ),

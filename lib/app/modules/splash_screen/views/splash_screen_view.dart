@@ -32,10 +32,12 @@ class SplashScreenView extends GetView<SplashScreenController> {
                   'Di Aplikasi',
                   style: TextStyle(
                     fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
                 ),
               ),
+              SizedBox(height: 8),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -53,7 +55,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
                 },
                 style: ElevatedButton.styleFrom(
                   padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  backgroundColor: Colors.grey[300],
+                  backgroundColor: Colors.grey[400],
                 ),
                 child: Text(
                   'Next',
